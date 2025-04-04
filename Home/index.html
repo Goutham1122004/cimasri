@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Air Compressor Website</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Arial, sans-serif; }
+        .blue-border { background: #365677; height: 45px; width: 100%; }
+        
+      /* Basic Navbar Styling */
+        .navbar {
+            display: flex;
+            height: 70px;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #EEF6F6    ;
+            padding: 10px 50px;
+            border-bottom: 2px solid #23436b;
+        }
+
+        .logo img {
+            margin-left: 40px;
+            width: 115px;
+            height: 50px;
+        } 
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: #365677    ;
+            text-decoration: none;
+            padding: 8px 16px;
+            font-size: 20px;
+            font-weight: 600;
+        }
+        .menu-toggler {
+            position: absolute;
+            top: 100px;  /* Adjust the value to move it down */
+            right: 20px; /* Keep it aligned to the right */
+        }
+
+        /* Product Dropdown Styling */
+        .dropdown {
+            position: relative;
+            top:8px;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #fcfcfc;
+            min-width: 160px;
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            padding: 12px 16px;
+            color: rgb(18, 17, 17);
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #575757;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .slide img{
+            background-color: rgba(0, 0, 0, 0.807);
+        }
+        /* .logo img { height: 70px; width:70px; } */
+        .nav-links { margin-left: auto; }
+        /* .nav-links a { color: black; text-decoration: none; margin: 0 15px; font-weight: bold; } */
+        .slider-container { position: relative; width: 100%; max-width: 100vw; overflow: hidden; }
+        .slides { display: flex; width: 300%; animation: slide 12s infinite;  }
+        .slide { width: 100vw; flex-shrink: 0; position: relative; }
+        .slide img { width: 100%; height: auto; display: block; }
+        .slide-content { 
+            background-color: rgba(0, 0, 0, 0.3);position: absolute; top: 30%; left: 10%; color: white; font-size: 3em; font-weight: 1200; }
+        .button {
+            background: yellow;
+            padding: 5px 10px; /* Reduced padding for smaller size */
+            font-size: 14px; /* Decreased font size */
+            color: black;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+            display: inline-block;
+            margin-top: 7px; /* Adjust spacing */
+            text-align: center;
+            border-radius: 10px;
+            font-size:15px;
+            text-decoration: none;
+        }
+        
+        @keyframes slide {
+            0%, 33.33% { transform: translateX(0); }
+            33.34%, 66.66% { transform: translateX(-100vw); }
+            66.67%, 100% { transform: translateX(-200vw); }
+        }
+        
+        .footer {
+            background-color: #274b6d;
+            color: white;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        .footer div {
+            width: 22%;
+        }
+        .footer h3 {
+            margin-bottom: 10px;
+            border-bottom: 2px solid white;
+            display: inline-block;
+        }
+        .footer ul {
+            list-style: none;
+        }
+        .footer ul li {
+            margin: 5px 0;
+        }
+        .footer a {
+            color: white;
+            text-decoration: none;
+        }
+        .footer .social-icons {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        .footer .social-icons img {
+            width: 25px;
+            height: 25px;
+        }
+        .copyright {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .img1 {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+                }
+                footer {
+            display: flex;
+            justify-content: space-between;
+            background: #f8f8f8;
+            padding: 20px;
+            flex-wrap: wrap;
+        }
+
+        footer div {
+            flex: 1;
+            min-width: 200px;
+            margin: 10px;
+        }
+
+        footer img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        ul li a {
+            text-decoration: none;
+            color: #333;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .social-icons img {
+            width: 30px;
+            height: 30px;
+        }
+
+        .slider-container1 {
+            width: 100%;
+            max-width: 1200px; /* Adjust for your container width */
+            height: 300px; /* Adjust height as needed */
+            overflow: hidden;
+            position: relative;
+            margin: auto;
+        }
+
+        .slider-wrapper1 {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .slide1 {
+            flex: 0 0 20%; /* Each slide takes 20% width to fit 5 images at a time */
+            margin-right: 10px; /* Add space between slides */
+        }
+
+        /* Remove margin from the last slide to avoid extra space */
+        .slide1:last-child {
+            margin-right: 0;
+        }
+
+        .slide1 img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .dots { position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%); display: flex; }
+        .dot { width: 10px; height: 10px; margin: 0 5px; background: white; border-radius: 50%; opacity: 0.5; }
+        .dot.active { opacity: 1; }
+        .about-section { display: flex; align-items: center; padding: 100px 50px 50px 150px; background: #e5fbfd; }
+        .about-image img { width: 430px; border-radius: 10px; }
+        .about-content { margin-left: 50px; max-width: 700px; font-size: 1.2em; }
+        .about-content h2 { font-size: 2.2em; margin-bottom: 10px; }
+        .about-content p { font-size: 1.1em; margin-bottom: 10px; }
+        .about-content p::first-line {
+            text-align: center;
+        }
+        .about-buttons { margin-top: 30px; }
+        .about-buttons button { width: 140px; height: 35px; font-size: 18px; margin-right: 10px; padding: 7px 15px; cursor: pointer; font-weight: bold; text-decoration: none; }
+        .learn-more { background: white; border: 2px solid #365677; color: #365677; }
+        .contact-us { background: yellow; border: none;}
+        .products-section { text-align: center; padding: 50px 150px; background: white; }
+        .products-section2 { text-align: center; padding: 50px 150px; background: white; }
+        .products-section1 { text-align: center; padding: 50px; width: 50%; background: white; }
+        .products-section h1 { margin-bottom: 40px; font-size: 40px;}
+        .products-container { display: flex; gap: 50px; margin-top: 20px; align-items: stretch; justify-content: center; }
+        .products-container1 { display: flex; gap: 150px; margin-top: 20px; align-items: stretch; }
+        .product-card { background: #23436b; color: white; padding: 10px; border-radius: 10px; width: 265px; height: 315px; text-align: center; display: flex; flex-direction: column; justify-content: space-between; }
+        .product-card img { width: 250px; height: 130px; border-radius: 10px; max-height: 250px; object-fit: cover; }
+        .product-card h3 { margin-top: 20px; font-size: 1.3em; }
+        .product-card p { font-size: 0.8em; margin-top: 15px; }
+        .view-more { background: yellow; color: black; padding: 7px 5px; border: none; cursor: pointer; font-weight: bold; margin-top: 15px; font-size:15px;
+        border-radius: 10px; width: 100px; height: 30px; margin-left: 145px;}
+        .product-info { display: flex; flex-direction: column; align-items: center; text-align: center; margin-top: 50px; }
+        .product-image img { margin-left: 0px; width: 150px; }
+        .product-image1 img { margin-left: 0px; width: 150px; }
+        .product-description { max-width: 1000px; font-size: 1.5em; font-weight: bold; }
+
+        /* Media Queries for Phone Width */
+        @media (max-width: 768px) {
+            footer {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            footer div {
+                width: 100%;
+            }
+            .header-contact {
+                padding-right: 15px !important; 
+                height: 20px !important; 
+                padding-top: 6px !important;
+                font-size: 7px;
+            }
+            .navbar {
+                display: flex;
+                height: 40px;
+                padding: 10px 10px;
+            }
+            .logo img {
+                margin-left: 10px;
+                width: 55px;
+                height: 20px;
+            } 
+            .nav-links {
+                display: flex;
+                gap: 5px;
+                margin-left: 0;
+                margin-top: 0px;
+                align-items: center;
+                justify-content: space-between;
+            }
+
+            .nav-links a {
+                color: #365677    ;
+                text-decoration: none;
+                padding: 2px 6px;
+                font-size: 8px !important;
+                font-weight: 600;
+                display: inline-block;
+                margin: 5px 0;
+            }
+            .dropdown {
+                position: relative;
+                top: 0.5px;
+            }
+            .dropdown-content {
+                min-width: 60px;
+            }
+
+            .dropdown-content a {
+                padding: 2px 2px;
+                font-size: 7px !important;
+            }
+
+            /* Show the nav links when a toggle button is clicked */
+            .nav-links.active {
+                display: flex;
+            }
+            .slide-content {
+                font-size: 1em;
+                top: 20%;
+            }
+            .button {
+                padding: 5px 10px;
+                font-size: 10px;
+                margin-top: 7px;
+                width: 70px;
+                height: 20px;
+            }
+            .about-section { display: flex; align-items: center; padding: 20px 20px 20px 20px; background: #e5fbfd; }
+            .about-image img { width: 170px; border-radius: 10px; }
+            .about-content { margin-left: 10px; max-width: 200px; font-size: 0.7em; }
+            .about-content h2 { font-size: 1.2em; margin-bottom: 10px; }
+            .about-content p { font-size: 0.5em; margin-bottom: 10px; }
+            .about-content p::first-line {
+                text-align: center;
+            }
+            .about-buttons { margin-top: 10px; }
+            .about-buttons button { width: 60px; height: 20px; font-size: 7px; margin-right: 10px; padding: 6px 5px; cursor: pointer; font-weight: bold; text-decoration: none; }
+            .learn-more { background: white; border: 2px solid #365677; color: #365677; }
+            .contact-us { background: yellow; border: none;}
+            .products-section { text-align: center; padding: 20px 30px; background: white; }
+            .products-section2 { text-align: center; padding: 20px 30px; background: white; }
+            .products-section1 { text-align: center; padding: 50px; width: 50%; background: white; }
+            .products-section h1 { margin-bottom: 15px; font-size: 20px;}
+            .products-section2 h1 { margin-bottom: 15px; font-size: 20px;}
+            .products-container { display: flex; gap: 20px; margin-top: 20px; align-items: stretch; justify-content: center; }
+            .products-container1 { display: flex; gap: 20px; margin-top: 20px; align-items: stretch; }
+            .product-card { background: #23436b; color: white; padding: 5px; border-radius: 10px; width: 100px; height: 115px; text-align: center; display: flex; flex-direction: column; justify-content: space-between; }
+            .product-card img { width: 90px; height: 50px; border-radius: 10px; max-height: 60px; object-fit: cover; }
+            .product-card h3 { margin-top: 4px; font-size: 0.4em; }
+            .product-card p { font-size: 0.2em; margin-top: 2px; }
+            .view-more { background: yellow; color: black; padding: 2px 5px; border: none; cursor: pointer; font-weight: bold; margin-top: 2px; font-size:6px;
+            border-radius: 10px; width: 40px; height: 12px; margin-left: 47px;}
+            .product-info { display: flex; flex-direction: column; align-items: center; text-align: center; margin-top: 0px; }
+            .product-image img { margin-left: 0px; width: 70px; }
+            .product-image1 img { margin-left: 0px; width: 70px; }
+            .product-description { max-width: 300px; font-size: 0.4em; font-weight: bold; }
+            .slider-container1 {
+                width: 100%;
+                max-width: 1200px; /* Adjust for your container width */
+                height: 100px; /* Adjust height as needed */
+                overflow: hidden;
+                position: relative;
+                margin: auto;
+            }
+        }
+    </style>
+</head>
+<body> 
+    <div class="header-contact" style="background-color: #365677; color: white; text-align: right; padding-right: 70px; padding-top: 13px; height: 45px;">
+        <!-- prettier-ignore --><span class="contact-91-9443-0268-0">CONTACT:</span>
+        <!-- prettier-ignore --><span class="contact-91-9443-0268-1">+91 9443034354 </span>
+        <!-- prettier-ignore --><span class="contact-91-9443-0268-2"> / MAIL ID: </span>
+        <!-- prettier-ignore --><span class="contact-91-9443-0268-3">esr_tex@yahoo.com</span>
+      </div>
+      
+   
+        
+        <div class="navbar">
+            <div class="logo">
+                <img src="cima_sri_airjet_logo_page-0001-removebg-preview 1.png" alt="CIMASRI Logo">
+            </div>
+            <div class="nav-links">
+                <a style="font-size:22px" href="#">Home</a>
+                <a style="font-size:22px" href="#about">About us</a>
+                <div class="dropdown">
+                    <a style="font-size:22px" style href="#">Product</a>
+                    <div class="dropdown-content">
+                        <a style="font-size:18px" href="#1">Air Compressor Spares</a>
+                        <a style="font-size:18px" href="#2">Loom Spares</a>
+                        <a style="font-size:18px" href="#3">Compressed Air Piping System</a>
+                    </div>
+                </div>
+                <a style="font-size:22px" href="#event">Event</a>
+                <a style="font-size:22px" href="../Contact/index.html">Contact</a>
+            </div>
+        </div>
+    
+    <div class="slider-container">
+        <div class="slides">
+            <div class="slide">
+                <img src="Rectangle 437.png" alt="Air Compressor 1">
+                <div class="slide-content">Premium Loom Spares for Superior Weaving Performance<br><a style="text-decoration:none" href="#2" class="button">View More</a></div>
+            </div>
+            <div class="slide">
+                <img src="Rectangle 4374.png" alt="Air Compressor 2">
+                <div class="slide-content">Extremely Energy Saving
+                    Air Compressor<br><a style="text-decoration:none" href="#1" class="button">View More</a></div>
+            </div>
+            <div class="slide">
+                <img src="Rectangle 4452.png" alt="Air Compressor 3">
+                <div class="slide-content">A Technology multi fold ahead of conventional
+                    industrial piping system<br><a style="text-decoration:none" href="#3" class="button">View More</a></div>
+            </div>
+        </div>
+        <div class="dots">
+            <div class="dot active"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+        </div>
+    </div>
+    <div id="about" class="about-section">
+        <div class="about-image">
+            <img src="about.png" alt="About Us">
+        </div>
+        <div class="about-content">
+            <h2>About us</h2>
+            <p>Welcome to CIMA SRI Airjet Spares, your partner in industrial efficiency. We provide dual-stage energy-saving compressor spares, loom spares, and air piping systems for the textile, medical, and FMCG industries across India.</p>
+            <p>Our high-performance components ensure seamless operations, boosting productivity and reducing costs. As authorized dealers for top brands like Seize Air, Sifi Air, and Alloy, we deliver trusted best-in-class solutions.</p>
+            <div class="about-buttons">
+                <button onclick="window.location.href='#event';" class="learn-more">Learn More</button>
+                <button onclick="window.location.href='../Contact/index.html';" class="contact-us">Contact Us</button>
+            </div>
+        </div>
+    </div>
+    <div id="product" class="products-section">
+        <h1>Products</h1>
+        <h1 id="1">Dual stage Energy saving Air Compressor Spares</h1>
+        <div class="products-container">
+            <div  class="product-card">
+                <img src="1.1.png" alt="Seize Air">
+                <h3 >Seize Air</h3>
+                <p>
+                    We offer oil-free compressors, <span style="color: #FFD700; font-weight: bold;">oxygen (O₂)</span> for healthcare and industry, and <span style="color: #FFD700; font-weight: bold;">nitrogen (N₂)</span> for textile and engineering.
+                </p>
+                <a href="../Seizeair/index.html" style="text-decoration:none" class="view-more">View More</a>
+            </div>
+            <div class="product-card">
+                <img src="1.2.png" alt="Multi Brand Screw Compressor Spare Parts">
+                <h3>Multi Brand Screw Compressor Spare Parts</h3>
+                <p>Kaeser, Atlas copco,Cp,IR,ELGI <br> All brand line filters and cartridge is available </p>
+                <a href="../Multi Brand/index.html" style="text-decoration:none" class="view-more">View More</a>
+            </div>
+            <div class="product-info">
+                <div class="product-image">
+                    <img src="p1.png" alt="Compressor Icon">
+                </div>
+                <div class="product-description">
+                    <p>Our premium <span style="color: blue;">compressor spares</span> are designed to enhance performance, ensure durability, and minimize downtime across various industrial applications.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div  class="products-section">
+        <h1 id="2">Looms Spares and Accessories</h1>
+        <div class="products-container1">
+            <div class="product-card">
+                <img src="loom1.png" alt="Seize Air">
+                <h3>PICANOL</h3>
+                <p>Looms model pat ,pat A ,delta,delta X,Omni ,Omni plus,omni jet,omni plus 800,omni plus summum,Omni plus i</p>
+                <a href="../Picanol/index.html" style="text-decoration:none" class="view-more">View More</a>
+            </div>
+            <div class="product-card">
+                <img src="loom2.png" alt="Multi Brand Screw Compressor Spare Parts">
+                <h3>TOYOTO</h3>
+                <p>Looms model 5200 5300,610,710,810,910</p>
+                <a href="../Toyota/index.html" style="text-decoration:none" class="view-more">View More</a>
+            </div>
+            <div class="product-card">
+                <img src="loom3.png" alt="Multi Brand Screw Compressor Spare Parts">
+                <h3>Reeds, Healds wires 
+                    and  Droppers</h3>
+                <p>Suitable reeds for picanol looms and toyato E-Reeds and profile reeds tsudakoma looms and itima looms</p>
+                <a href="../Alcoy/index.html" style="text-decoration:none" class="view-more">View More</a>
+            </div>
+        </div>
+    </div>
+    <div class="products-section">
+        <div class="products-container1">
+            <div class="product-card">
+                <img src="loom4.png" alt="Seize Air">
+                <h3>Tsudakoma</h3>
+                <p>Zax ,Zax-A,Zax-N,Zax-X,Zax -9100,
+                    Zax-9200 i,Zax-9200 i master,Zax- 001 Neo</p>
+                    <a href="../Tsudakoma/index.html" style="text-decoration:none" class="view-more">View More</a>
+            </div>
+            <div class="product-info">
+                <div class="product-image1">
+                    <img src="p2.png" alt="Compressor Icon">
+                </div>
+                <div class="product-description">
+                    <p>We provide high-quality loom spares like reeds, heald wires, and droppers, ensuring optimal performance and durability for weaving machinery.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="products-section">
+        <h1 id="3">Compressed Air Piping System</h1>
+        <div class="products-container1">
+            <div class="product-card">
+                <img src="c1.png" alt="Seize Air">
+                <h3>Pipe Line</h3>
+                <p>We do quality and branded Aluminium pipe line works & PPR,PPCH Piping system</p>
+                <a href="../Piping system/index.html" style="text-decoration:none" class="view-more">View More</a>
+            </div>
+            <div class="product-card">
+                <img src="c2.png" alt="Seize Air">
+                <h3>CAM and Repeat Gear</h3>
+                <p>Staubli Used original cam and reapet Gears </p>
+                <a href="../CAM and Reapet Gear/index.html" style="text-decoration:none" class="view-more">View More</a>
+            </div>
+            <div class="product-info">
+                <div class="product-image1">
+                    <img src="p3.png" alt="Compressor Icon">
+                </div>
+                <div class="product-description">
+                    <p>We provide advanced piping components ensuring efficiency, reliability, and seamless operation for industrial applications.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <img class="img1" src="comit.png" alt="Image">
+    <div id="event" class="products-section">
+       <h1>Our Events</h1>
+       <div class="slider-container1">
+        <div class="slider-wrapper1">
+          <div class="slide1"><img src="1.png" alt="Slide 1"></div>
+          <div class="slide1"><img src="2.png" alt="Slide 2"></div>
+          <div class="slide1"><img src="3.png" alt="Slide 3"></div>
+          <div class="slide1"><img src="4.png" alt="Slide 4"></div>
+          <div class="slide1"><img src="5.png" alt="Slide 5"></div>
+          <div class="slide1"><img src="6.png" alt="Slide 6"></div>
+          <div class="slide1"><img src="7.png" alt="Slide 7"></div>
+          <div class="slide1"><img src="8.png" alt="Slide 8"></div>
+          <div class="slide1"><img src="9.png" alt="Slide 9"></div>
+          <div class="slide1"><img src="10.png" alt="Slide 10"></div>
+          <div class="slide1"><img src="11.png" alt="Slide 11"></div>
+        </div>
+      </div>
+
+      <script>
+        document.addEventListener("DOMContentLoaded", () => {
+      const sliderWrapper = document.querySelector(".slider-wrapper1");
+      const slides = document.querySelectorAll(".slide1");
+      let currentIndex = 0;
+    
+      // Clone the first 5 slides and append them to the end for infinite looping
+      for (let i = 0; i < 5; i++) {
+        const clone = slides[i].cloneNode(true);
+        sliderWrapper.appendChild(clone);
+      }
+    
+      function updateSlider() {
+        // Move to the next position
+        sliderWrapper.style.transform = `translateX(-${currentIndex * 20}%)`;
+    
+        // Reset position when at the end of the loop
+        if (currentIndex === slides.length) {
+          setTimeout(() => {
+            sliderWrapper.style.transition = "none"; // Disable transition
+            currentIndex = 0;
+            sliderWrapper.style.transform = `translateX(0)`;
+            setTimeout(() => {
+              sliderWrapper.style.transition = "transform 0.5s ease-in-out"; // Re-enable transition
+            });
+          }, 500); // Match the transition duration
+        }
+      }
+    
+      function autoSlide() {
+        currentIndex++;
+        updateSlider();
+      }
+    
+      // Start auto-sliding every 2 seconds
+      setInterval(autoSlide, 2000);
+    });
+    
+    </script>
+    
+    </div>
+    <footer class="footer">
+        <div style="max-width: 200px; margin: 0 auto; text-align: left;">
+            <img src="image1.png" alt="CIMA SRI Logo" width="120" style="margin: 10px;">
+            <h1>About us</h1>
+            <img src="image11.png" alt="CIMA SRI Logo" width="120" style="margin: 10px;">
+            <span></span>
+            <p>CIMA SRI Airjet Spares: Trusted partner for energy-saving spares and systems. Boosting efficiency across textile, medical, and FMCG industries in India.</p>
+        </div>
+        
+       
+        <style>
+           /* Container for Quick Links and Products */
+.quick-links-container {
+    display: flex;
+    justify-content: center; /* Centers sections evenly */
+    gap: 50px; /* Adds spacing between sections */
+    padding: 20px 0; /* Adds top and bottom spacing */
+}
+
+/* Styling for Quick Links and Products sections */
+.quick-links, .quick-links1 {
+    width: 300px; /* Equal width for both sections */
+}
+
+/* Center alignment for Quick Links */
+.quick-links {
+    text-align: left; 
+    margin-left:140px;
+    
+}
+
+/* Left alignment for Products */
+.quick-links1 {
+    text-align: left;
+    
+}
+
+/* Headings for both sections */
+.quick-links h3, .quick-links1 h3 {
+    font-size: 24px; 
+    font-weight: bold; 
+    margin-bottom: 10px;
+    color: white; /* Ensures visibility */
+}
+
+/* List styling */
+.quick-links ul, .quick-links1 ul {
+    list-style-type: none; 
+    padding: 0;
+    margin: 0;
+}
+
+/* List item styling */
+.quick-links ul li, .quick-links1 ul li {
+    margin: 20px 0;
+    font-size: 18px; 
+    font-weight: bold;
+    color: white; 
+    
+    align-items: center;
+}
+
+/* Add play icon before each link */
+.quick-links ul li::before,
+.quick-links1 ul li::before {
+    content: "\25B6"; /* Unicode for play button ► */
+    color: white;
+    font-size: 14px;
+    margin-right: 8px;
+}
+
+/* Link styling */
+.quick-links ul li a, 
+.quick-links1 ul li a {
+    font-size: 18px; 
+    text-decoration: none; 
+    color: white;
+    font-weight: bold; 
+    display: inline-flex;
+    align-items: center;
+    transition: color 0.3s ease-in-out;
+}
+
+/* Hover effect for links */
+.quick-links ul li a:hover, 
+.quick-links1 ul li a:hover {
+    color: blue; /* Changes color on hover */
+}
+
+/* Social Icons Section */
+.social-icons11 {
+    display: flex;
+    gap: 15px; /* Increases spacing between icons */
+    align-items: center;
+    justify-content: center;
+    padding: 10px 0;
+}
+
+/* Social Icons Styling */
+.social-icons11 img {
+    width: 150%; /* Increase the icon size */
+    height: 25px; 
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Hover effect for social icons */
+.social-icons11 img:hover {
+    transform: scale(1.3); /* Larger zoom effect */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .quick-links-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .quick-links, .quick-links1 {
+        width: 100%;
+    }
+}
+
+        </style>
+
+        <div class="quick-links">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#product">Product</a></li>
+                <li><a href="#event">Event</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="../Contact/index.html">Contact</a></li>
+            </ul>
+        </div>
+        
+        <div class="quick-links1">
+            <h3>Products</h3>
+            <ul>
+                <li><a href="#1"></a>Air Compressor Spares</a></li>
+                <li><a href="#2">Looms Spares</a></li>
+                <li><a href="#3">Compressed Air Piping System</a></li>
+            </ul>
+        </div>
+        
+        <div>
+            <div class="social-icons11">
+                <a href="https://wa.me/your-number" target="_blank"><img src="whats.png" alt="WhatsApp"></a>
+                <a href="https://instagram.com/yourprofile" target="_blank"><img src="insta.png" alt="Instagram"></a>
+                <a href="https://facebook.com/yourprofile" target="_blank"><img src="face.png" alt="Facebook"></a>
+                <a href="https://twitter.com/yourprofile" target="_blank"><img src="twi.png" alt="Twitter"></a>
+                <a href="https://linkedin.com/in/yourprofile" target="_blank"><img src="link.png" alt="LinkedIn"></a>
+                <a href="https://youtube.com/yourchannel" target="_blank"><img src="youtuve.png" alt="YouTube"></a>
+            </div>
+            
+            <div style="width: 100%; max-width: 800px; margin: 10px; padding: 10px; box-sizing: border-box; text-align: left;">
+                <h3>Contact Us</h3>
+                
+                <!-- Phone -->
+                <p style="margin: 10px 0;">
+                    <img src="phone.png" alt="Phone" 
+                         style="width: 18px; margin-right: 8px; vertical-align: middle;">
+                    +91 9434034354, +91 814124385, +91 814124384, +91 9345736417
+                </p>
+                
+                <!-- Email -->
+                <p style="margin: 10px 0;">
+                    <img src="email.png" alt="Email" 
+                         style="width: 18px; margin-right: 8px; vertical-align: middle;">
+                    <a href="mailto:esr_tex@yahoo.com" 
+                       style="text-decoration: none; color: rgb(246, 246, 255); font-weight: bold;">
+                       esr_tex@yahoo.com
+                    </a>
+                </p>
+                
+                <!-- Head Office -->
+               
+                <p style="margin: 10px 0px;">
+                    <img src="location.png" alt="Location" 
+                    style="width: 15px; margin-right: 4px; vertical-align: left;">
+                    <strong>Head Office:</strong> 357, Balaji Tank Road, Opp. Ullavar Santhai, 
+                    Singanallur, Coimbatore - 641005
+                </p>
+                
+                <!-- Branch 1 -->
+                <p style="margin: 10px 0;">
+                    
+                    <strong>Branch 1:</strong> Plot No. 136, Khairne Industrial Estate, Shahapur, 
+                    Tal-Khairani, Maharashtra - 416115
+                </p>
+                
+                <!-- Branch 2 -->
+                <p style="margin: 10px 0;">
+                   
+                    <strong>Branch 2:</strong> Block No. 534/A, Dhoran Pardi, Kamrej, 
+                    Dhoran, Surat, Gujarat - 394150
+                </p>
+            </div>
+            
+            
+          
+            
+           
+        </div>
+    </footer>
+    <div class="copyright">
+        <p>Copyright © 2025 <strong>CIMA SRI Airjet Spares</strong>. All rights reserved.</p>
+    </div>
+    
+</body>
+</html>

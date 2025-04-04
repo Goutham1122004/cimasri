@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Air Compressor Website</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Arial, sans-serif; }
+        .blue-border { background: #365677; height: 10px; width: 100%; }
+      /* Basic Navbar Styling */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #365677;
+    padding: 10px 20px;
+    border-bottom: 2px solid #365677;
+}
+.logo img {
+            margin-left: 40px;
+            width: 125px;
+            height: 50px;
+        } 
+
+        .logo img {
+                margin-left: 10px;
+                width: 5px;
+                height: 20px;
+            } 
+.logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 200px; /* Adjust as needed */
+    height: auto;
+}
+
+
+
+
+
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+    
+}
+
+.nav-links a {
+    color: rgb(9, 9, 9);
+    text-decoration: none;
+    padding: 8px 16px;
+    font-size: 16px;
+}
+.menu-toggler {
+    position: absolute;
+    top: 100px;  /* Adjust the value to move it down */
+    right: 20px; /* Keep it aligned to the right */
+}
+
+/* Product Dropdown Styling */
+.dropdown {
+    position: relative;
+    top:8px;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #365677;;
+    min-width: 160px;
+    z-index: 1;
+}
+
+.dropdown-content a {
+    padding: 12px 16px;
+    color: #365677;
+    text-decoration: none;
+    display: block;
+}
+footer {
+    display: flex;
+    justify-content: space-between;
+     /* Ensures alignment */
+    flex-wrap: wrap;
+}
+
+/* Ensure phone numbers are displayed one per line */
+.contact-details span {
+    display: block; /* Forces each number to be on a new line */
+    white-space: nowrap; /* Prevents breaking in between */
+}
+.dropdown-content a:hover {
+    background-color: #575757;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Media Query for Mobile Screens */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px;
+    }
+
+    .nav-links {
+        display: none; /* Hide the nav links by default on mobile */
+        flex-direction: column;
+        width: 100%;
+        gap: 10px;
+    }
+
+    .nav-links a {
+        padding: 10px;
+        border-bottom: 1px solid #ddd; /* Add a border for better separation */
+    }
+
+    .dropdown-content {
+        position: static; /* Make dropdown content stack vertically */
+        background-color: transparent;
+    }
+
+    .dropdown-content a {
+        padding: 10px 20px; /* Adjust padding for dropdown items */
+    }
+
+    /* Show the nav links when a toggle button is clicked */
+    .nav-links.active {
+        display: flex;
+    }
+
+    /* Add a toggle button for mobile */
+    .navbar .menu-toggle {
+        display: block;
+        position: absolute;
+        right: 20px;
+        top:75px;
+        font-size: 24px;
+        cursor: pointer;
+    }
+}
+        .logo img { height: 70px; width:100px; }
+        .nav-links { margin-left: auto; }
+        .nav-links a { color: white; text-decoration: none; margin: 0 15px; font-weight: bold; }
+        .slider-container { position: relative; width: 100%; max-width: 100vw; overflow: hidden; }
+        .slides { display: flex; width: 300%; animation: slide 12s infinite; }
+        .slide { width: 100vw; flex-shrink: 0; position: relative; }
+        .slide img { width: 100%; height: auto; display: block; }
+        .slide-content { position: absolute; top: 30%; left: 10%; color: white; font-size: 2em; font-weight: bold; }
+        .button {
+            background: yellow;
+            padding: 5px 10px; /* Reduced padding for smaller size */
+            font-size: 14px; /* Decreased font size */
+            color: black;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+            display: inline-block;
+            margin-top: 7px; /* Adjust spacing */
+            text-align: center;
+            border-radius: 10px;
+            font-size:15px;
+            text-decoration: none;
+        }
+        
+        @keyframes slide {
+            0%, 33.33% { transform: translateX(0); }
+            33.34%, 66.66% { transform: translateX(-100vw); }
+            66.67%, 100% { transform: translateX(-200vw); }
+        }
+        
+        .footer {
+            background-color: #eef6f6ff;
+            color: white;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        .footer div {
+            width: 22%;
+        }
+        .footer h3 {
+            margin-bottom: 10px;
+            border-bottom: 2px solid white;
+            display: inline-block;
+        }
+        .footer ul {
+            list-style: none;
+        }
+        .footer ul li {
+            margin: 5px 0;
+        }
+        .footer a {
+            color: white;
+            text-decoration: none;
+        }
+        .footer .social-icons {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        .footer .social-icons img {
+            width: 25px;
+            height: 25px;
+        }
+        .copyright {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .img1 {
+            width: 100%;
+      height: 100%;
+      object-fit: cover;
+        }
+        footer {
+    display: flex;
+    justify-content: space-between;
+    background: #f8f8f8;
+    padding: 20px;
+    flex-wrap: wrap;
+}
+
+footer div {
+    flex: 1;
+    min-width: 200px;
+    margin: 10px;
+}
+
+footer img {
+    max-width: 100%;
+    height: auto;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+ul li a {
+    text-decoration: none;
+    color: #333;
+}
+
+.social-icons {
+    display: flex;
+    gap: 10px;
+}
+
+.social-icons img {
+    width: 30px;
+    height: 30px;
+}
+
+/* Media Query for mobile screens */
+@media (max-width: 768px) {
+    footer {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    footer div {
+        width: 100%;
+    }
+}
+
+        .slider-container1 {
+    width: 100%;
+    max-width: 1200px; /* Adjust for your container width */
+    height: 300px; /* Adjust height as needed */
+    overflow: hidden;
+    position: relative;
+    margin: auto;
+}
+
+.slider-wrapper1 {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slide1 {
+    flex: 0 0 20%; /* Each slide takes 20% width to fit 5 images at a time */
+    margin-right: 10px; /* Add space between slides */
+}
+
+/* Remove margin from the last slide to avoid extra space */
+.slide1:last-child {
+    margin-right: 0;
+}
+
+.slide1 img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+        .dots { position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%); display: flex; }
+        .dot { width: 10px; height: 10px; margin: 0 5px; background: white; border-radius: 50%; opacity: 0.5; }
+        .dot.active { opacity: 1; }
+        .about-section { display: flex; align-items: center; padding: 50px; background: #f8f9fa; }
+        .about-image img { width: 500px; border-radius: 10px; }
+        .about-content { margin-left: 150px; max-width: 700px; font-size: 1.2em; }
+        .about-content h2 { font-size: 2.5em; margin-bottom: 10px; }
+        .about-content p { font-size: 1.2em; margin-bottom: 10px; }
+        .about-buttons { margin-top: 10px; }
+        .about-buttons button { margin-right: 10px; padding: 15px 25px; border: none; cursor: pointer; font-weight: bold; text-decoration: none; }
+        .learn-more { background: white; border: 2px solid black;font-size:20px }
+        .contact-us { background: yellow; font-size:20px}
+        .products-section { text-align: center; padding: 50px; background: white; }
+        .products-section1 { text-align: center; padding: 50px; width: 50%; background: white; }
+        .products-container { display: flex; gap: 50px; margin-top: 20px; align-items: stretch; justify-content: center; }
+        .products-container1 { display: flex; gap: 150px; margin-top: 20px; align-items: stretch; justify-content: center; }
+        .product-card { background: #365677; color: white; padding: 40px; border-radius: 10px; width: 400px; height: 550px; text-align: center; display: flex; flex-direction: column; justify-content: space-between; }
+        .product-card img { width: 100%; border-radius: 10px; max-height: 250px; object-fit: cover; }
+        .product-card h3 { margin-top: 20px; font-size: 1.8em; }
+        .product-card p { font-size: 1.3em; margin-top: 15px; }
+        .view-more { background: yellow; color: black; padding: 14px 20px; border: none; cursor: pointer; font-weight: bold; margin-top: 15px; font-size:20px;
+        border-radius: 10px;}
+        .product-info { display: flex; flex-direction: column; align-items: center; text-align: center; margin-top: 50px; }
+        .product-image img { margin-left: 200px; width: 150px; }
+        .product-image1 img { margin-left: 100px; width: 150px; }
+        .product-description { max-width: 1000px; font-size: 1.5em; font-weight: bold; }
+
+        /* Media Queries for Phone Width */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 10px;
+            }
+            .nav-links {
+                margin-left: 0;
+                margin-top: 10px;
+            }
+            .nav-links a {
+                display: block;
+                margin: 5px 0;
+                font-size:15px
+            }
+            .slide-content {
+                font-size: 1.5em;
+                top: 20%;
+            }
+            .about-section {
+                flex-direction: column;
+                padding: 20px;
+            }
+            .about-image img {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+            .about-content {
+                margin-left: 0;
+                max-width: 100%;
+                text-align: center;
+            }
+            .about-content h2 {
+                font-size: 2em;
+            }
+            .about-content p {
+                font-size: 1em;
+            }
+            .products-section, .products-section1 {
+                padding: 20px;
+            }
+            .products-container, .products-container1 {
+                flex-direction: column;
+                gap: 20px;
+            }
+            .product-card {
+                width: 100%;
+                height: auto;
+                padding: 20px;
+            }
+            .product-card img {
+                max-height: 200px;
+            }
+            .product-card h3 {
+                font-size: 1.5em;
+            }
+            .product-card p {
+                font-size: 1em;
+            }
+            .product-info {
+                margin-top: 20px;
+            }
+            .product-image img, .product-image1 img {
+                margin-left: 0;
+                width: 100px;
+            }
+            .product-description {
+                font-size: 1.2em;
+            }
+        }
+
+       body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: #ECF4F8; /* Light background for contrast */
+    }
+
+    /* Container for contact section */
+    .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      max-width: 1200px;
+      margin: 60px auto;
+      padding: 60px;
+      gap: 40px;
+    }
+
+    /* Left side: Contact Info */
+    .contact-info {
+      flex: 1;
+      padding-right: 30px;
+      border-right: 2px solid #ccc;
+      text-align: left;
+      color: #365677;
+    }
+    .contact-info h2 {
+      font-size: 45px;      /* Large heading size */
+      color: #365677;       /* Dark navy color */
+      /* Add a bottom border (a single line) under the heading */
+      display: inline-block;       /* ensures border spans only the heading text width */
+      border-bottom: 4px solid #365677;
+      padding-bottom: 5px;         /* space between text and border */
+      margin-bottom: 25px;         /* space below heading */
+    }
+    .contact-info p {
+      font-size: 18px;            /* Paragraph text size */
+      color: #365677;             /* All text is dark navy */
+      font-weight: bold;
+      margin-bottom: 25px;        /* Extra spacing between paragraphs */
+      line-height: 1.4;           /* Adjust line spacing */
+    }
+
+    /* Contact details: phone & email */
+    .contact-details {
+        display: flex;
+        justify-content: space-between; /* Align items to left and right */
+        align-items: center; /* Vertically center items */
+        font-size: 18px;
+        color: #365677;
+        width: 100%; /* Ensure it spans the full container width */
+       /* Add some spacing */
+    }
+    
+    .contact-details div {
+        display: flex;
+        align-items: center; /* Align icon and text properly */
+        gap: 8px; /* Space between icon and text */
+    }
+    
+    .contact-details a {
+        color: #365677;
+        text-decoration: none;
+        font-weight: bold;
+    }
+    
+    .contact-details a:hover {
+        color: #365677;
+        text-decoration: none;
+    }
+    
+
+    /* Right side: Contact Form */
+    .contact-form {
+      flex: 1;
+      background-color: #ffffff;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 0 25px rgba(0, 0, 0, 0.1);
+      color: #365677;
+    }
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 16px;
+      margin-top: 15px;
+      border: 1px solid #000000;
+      border-radius: 8px;
+      color: #365677;
+      font-size: 18px;
+      background-color: #F9F9F9;
+    }
+    .form-group {
+      display: flex;
+      gap: 20px;
+    }
+    .form-group input {
+      flex: 1;
+      background-color: #F9F9F9;
+    }
+    .contact-form button {
+      width: 100%;
+      background-color: #365677; /* Deep navy for button */
+      color: white;
+      padding: 16px;
+      border: none;
+      border-radius: 8px;
+      font-size: 25px;
+      margin-top: 20px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .contact-form button:hover {
+      background-color: #16202A; /* Darker hover color */
+    }
+
+    /* Responsive adjustments for smaller screens */
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+        text-align: center;
+        padding: 40px;
+      }
+      .contact-info {
+        border-right: none;
+        padding-right: 0;
+      }
+      .contact-form {
+        width: 100%;
+        margin-top: 30px;
+      }
+      .form-group {
+        flex-direction: column;
+        gap: 10px;
+      }
+      .contact-form input,
+      .contact-form textarea {
+        font-size: 20px;  /* Bigger inputs on small screens */
+        padding: 18px;
+      }
+    }
+    </style>
+</head>
+<body> 
+    <div style="background-color: #eef6f6ff; color: #365677; text-align: right; padding: 10px;">
+        <!-- prettier-ignore --><span class="contact-91-9443-0268-0">CONTACT:</span>
+        <!-- prettier-ignore --><span class="contact-91-9443-0268-1">+91 9443034354 </span>
+        <!-- prettier-ignore --><span class="contact-91-9443-0268-2"> / MAIL ID: </span>
+        <!-- prettier-ignore --><span class="contact-91-9443-0268-3">esr_tex@yahoo.com</span>
+      </div>
+      
+   
+        
+        <div class="navbar">
+            <img src="image1.png" alt="CIMA SRI Logo" width="120" style="margin: 10px;">
+            <div class="logo">
+                
+            </div>
+
+            <div class="nav-links">
+                <a style="font-size:22px" href="../Home/index.html">Home</a>
+                <a style="font-size:22px" href="../Home/index.html#about">About us</a>
+                <div class="dropdown">
+                    <a style="font-size:22px" style href="../Home/index.html#product">Product</a>
+                    <div class="dropdown-content">
+                        <a style="font-size:18px" href="../Home/index.html#1">Air Compressor Spares</a>
+                        <a style="font-size:18px" href="../Home/index.html#2">Loom Spares</a>
+                        <a style="font-size:18px" href="../Home/index.html#3">Compressed Air Piping System</a>
+                    </div>
+                </div>
+                <a style="font-size:22px" href="../Home/index.html#event">Event</a>
+                <a style="font-size:22px" href="#">Contact</a>
+            </div>
+        </div>
+        <script>
+            function toggleNav() {
+                const navLinks = document.querySelector('.nav-links');
+                navLinks.classList.toggle('active');
+            }
+        </script>
+
+        <div class="container">
+            <!-- Left Side: Contact Information -->
+            <div class="contact-info">
+                <h2>Contact Us</h2>
+                <!-- If you want a literal horizontal rule under the heading, uncomment the line below -->
+                <!-- <hr class="heading-line" /> -->
+              
+                <p>
+                  Need to get in touch with us? 
+                </p>
+                <p>
+                    Simply fill in the form and we’ll be in touch shortly.
+                </p>
+                <br><br><br><br><br>
+                <div class="contact-details">
+                    <!-- Left side (Phone numbers) -->
+                    <div>
+                        <img src="p1.png" alt="Phone" style="width: 18px;">
+                        <span>+919443034354,<br>
+                              +918144124385,<br> 
+                              +98144124384,<br> 
+                              +919345736417</span>
+                    </div>
+                    
+                    <!-- Right side (Email) -->
+                    <div>
+                        <img src="e1.png" alt="Email" style="width: 18px;">
+                        <a href="mailto:esr_tex@yahoo.com">esr_tex@yahoo.com</a>
+                    </div>
+                </div>
+                
+              </div>
+              
+        
+            <!-- Right Side: Contact Form -->
+            <div class="contact-form">
+              <form
+                id="contactForm"
+                action="mailto:esr_tex@yahoo.com"
+                method="POST"
+                enctype="multipart/form-data"
+              >
+                <div class="form-group">
+                  <input
+                    type="text"
+                    name="first_name"
+                    placeholder="First Name*"
+                    required
+                  />
+                  <input
+                    type="text"
+                    name="last_name"
+                    placeholder="Last Name*"
+                    required
+                  />
+                </div>
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Email Address*"
+                  required
+                />
+                <input
+                  type="tel"
+                  name="phone"
+                  placeholder="Phone Number*"
+                  required
+                />
+                <textarea
+                  name="message"
+                  placeholder="Your message..."
+                  rows="4"
+                  required
+                ></textarea>
+                <button type="submit">Submit</button>
+              </form>
+            </div>
+          </div>
+        <div style="display: inline-flex; align-items: center; width: 100%;">
+            <img src="location.png" alt="Location" style="width: 100%; max-width: 2000px; height: auto;">
+            
+        </div>
+        
+    
+   
+    <footer class="footer">
+        <div style="max-width: 200px; margin: 0 auto; text-align: left; color:#274b6d" >
+            <img src="image1.png" alt="CIMA SRI Logo" width="120" style="margin: 10px;">
+            <h1>About us</h1>
+            <img src="image11.png" alt="CIMA SRI Logo" width="120" style="margin: 10px;">
+            <span></span>
+            <p>CIMA SRI Airjet Spares: Trusted partner for energy-saving spares and systems. Boosting efficiency across textile, medical, and FMCG industries in India.</p>
+        </div>
+        
+        <div class="quick-links" style="color:#274b6d">
+            
+            <ul>
+                <li><h3>Quick Links</h3></li>
+                <li>▶ <a href="../Home/index.html">Home</a></li>
+                <li>▶ <a href="../Home/index.html#about">About Us</a></li>
+                <li>▶ <a href="../Home/index.html#product">Product</a></li>
+                <li>▶ <a href="../Home/index.html#event">Event</a></li>
+                <li>▶ <a href="../Home/index.html#event">Gallery</a></li>
+                <li>▶ <a href="#">Contact</a></li>
+            </ul>
+        </div>
+        <style>
+            .quick-links {
+    list-style: none;
+    padding: 0;
+}
+.quick-links-container {
+    text-align: center; /* Centers the title */
+}
+
+.quick-links {
+    list-style: none;
+    padding: 0;
+    display: inline-block; /* Makes the list align under the title */
+    text-align: left; /* Aligns text inside the list properly */
+}
+
+.quick-links li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.quick-links li {
+    display: flex;
+    align-items: center; /* Align icon and text */
+    gap: 8px; /* Space between icon and text */
+}
+
+.quick-links li::before {
+    content: "    "; /* Arrow symbol */
+    font-size: 14px;
+}
+
+            .quick-links {
+                text-align: center; /* Centers content */
+            }
+            
+            .quick-links h3 {
+                font-size: 24px; /* Increases heading size */
+                font-weight: bold; /* Makes the heading stand out */
+                margin-bottom: 10px;
+            }
+            
+            .quick-links ul {
+                list-style-type: none; /* Removes default bullet points */
+                padding: 0;
+            }
+            
+            .quick-links ul li {
+                margin: 10px 0; /* Adds spacing between links */
+            }
+            .quick-links h3, .quick-links1 h3, .contact-section h3 {
+                font-size: 20px;
+                font-weight: bold;
+                border-bottom: 2px solid #274b6d; /* Blue underline */
+                display: inline-block;
+                padding-bottom: 5px;
+                color: #274b6d; /* Ensures the heading is also blue */
+            }
+            .quick-links ul li, .quick-links1 ul li {
+                margin: 20px 0;
+                font-size: 18px; 
+                font-weight: bold;
+                
+                
+                align-items: center;
+            }
+            .quick-links ul li a {
+                font-size: 20px; /* Increases link text size */
+                text-decoration: none; /* Removes underline */
+                color: #274b6d; /* Sets readable color */
+                font-weight: bold; /* Makes the text bold */
+                transition: color 0.3s ease-in-out;
+            }
+            
+            .quick-links ul li a:hover {
+                color: blue; /* Changes color on hover */
+            }
+            
+            .quick-links1 {
+                text-align: left; /* Centers content */
+            }
+            
+            .quick-links1 h3 {
+                font-size: 24px; /* Increases heading size */
+                font-weight: bold; /* Makes the heading stand out */
+                margin-bottom: 10px;
+            }
+            
+            .quick-links1 ul {
+                list-style-type: none; /* Removes default bullet points */
+                padding: 0;
+            }
+            
+            .quick-links1 ul li {
+                margin: 10px 0; /* Adds spacing between links */
+            }
+            
+            .quick-links1 ul li {
+                font-size: 20px; /* Increases link text size */
+                text-decoration: none; /* Removes underline */
+                color: #274b6d; /* Sets readable color */
+                font-weight: bold; /* Makes the text bold */
+                transition: color 0.3s ease-in-out;
+            }
+            
+            .quick-links1 ul li a:hover {
+                color: blue; /* Changes color on hover */
+            }
+            
+            .social-icons11 {
+                display: flex;
+                gap: 15px; /* Increases spacing between icons */
+                align-items: center;
+                justify-content: center;
+                padding: 10px 0; /* Adds some padding */
+            }
+            
+            .social-icons11 img {
+                width: 250%; /* Increase the icon size */
+                height: 35px; /* Adjusted height to match the larger width */
+                cursor: pointer;
+                transition: transform 0.3s ease-in-out;
+            }
+            
+            .social-icons11 img:hover {
+                transform: scale(1.3); /* Larger zoom effect */
+            }
+            
+            
+           
+
+        </style>
+        
+        <div class="quick-links1" style="color:#274b6d">
+            <h3>Products</h3>
+            <ul style="color:#274b6d">
+                <li>▶ <a style="color:#274b6d" href="../Home/index.html#1">Dual stage Energy saving Air Compressor Spares</a></li>
+                <li>▶ <a style="color:#274b6d" href="../Home/index.html#2">Looms Spares</a></li>
+                <li>▶ <a style="color:#274b6d" href="../Home/index.html#3">Compressed Air Piping System</a></li>
+            </ul>
+        </div>
+        
+        <div>
+            <div class="social-icons11">
+                <a href="https://wa.me/your-number" target="_blank"><img src="whats.png" alt="WhatsApp"></a>
+                <a href="https://instagram.com/yourprofile" target="_blank"><img src="insta.png" alt="Instagram"></a>
+                <a href="https://facebook.com/yourprofile" target="_blank"><img src="face.png" alt="Facebook"></a>
+                <a href="https://twitter.com/yourprofile" target="_blank"><img src="twi.png" alt="Twitter"></a>
+                <a href="https://linkedin.com/in/yourprofile" target="_blank"><img src="link.png" alt="LinkedIn"></a>
+                <a href="https://youtube.com/yourchannel" target="_blank"><img src="youtuve.png" alt="YouTube"></a>
+            </div>
+            
+            <div style="width: 100%; max-width: 800px; margin: 0 auto; padding: 10px; box-sizing: border-box; text-align: left; ">
+                <h3 style="color:#274b6d;     border-bottom: 2px solid #274b6d; /* Blue underline */">Contact Us</h3>
+                <p style="width: 100%; margin: 10px 0;color:#274b6d">
+                    <img src="phone1.png" alt="Email" 
+                    style="width: 18px; margin-right: 8px; vertical-align: middle;">
+                    +91 9434034354, +91 814124385, +91 814124384, +91 9345736417</p>
+                <p style="width: 100%; margin: 10px 0;color:#274b6d">
+                    <img src="email1.png" alt="Email" 
+                    style="width: 18px; margin-right: 8px; vertical-align: middle;">
+                    <a href="mailto:esr_tex@yahoo.com" style="text-decoration: none; color: #274b6d; font-weight: bold;">esr_tex@yahoo.com</a></p>
+                <p style="width: 100%; margin: 10px 0;color:#274b6d">
+                    <img src="location1.png" alt="Email" 
+                    style="width: 18px; margin-right: 8px; vertical-align: middle;">
+                    <strong>Head Office:</strong> 357, Balaji Tank Road, Opp. Ullavar Santhai, Singanallur, Coimbatore - 641005</p>
+                <p style="width: 100%; margin: 10px 0;color:#274b6d"><strong>Branch 1:</strong> Plot No. 136, Khairne Industrial Estate, Shahapur, Tal-Khairani, Maharashtra - 416115</p>
+                <p style="width: 100%; margin: 10px 0;color:#274b6d"><strong>Branch 2:</strong> Block No. 534/A, Dhoran Pardi, Kamrej, Dhoran, Surat, Gujarat - 394150</p>
+            </div>
+            
+            
+          
+            
+           
+        </div>
+    </footer>
+    <div class="copyright">
+        <p>Copyright © 2025 <strong>CIMA SRI Airjet Spares</strong>. All rights reserved.</p>
+    </div>
+    <br>
+    
+</body>
+</html>
